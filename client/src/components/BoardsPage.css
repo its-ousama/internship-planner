@@ -1,0 +1,195 @@
+.boards-page { max-width: 800px; }
+
+.boards-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+.boards-title { font-size: 1.75rem; font-weight: 700; color: #1e293b; }
+.boards-sub { color: #94a3b8; font-size: 0.875rem; margin-top: 0.2rem; }
+.boards-new-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.boards-new-btn:hover { background: #2563eb; }
+
+.boards-create-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.boards-create-input {
+  flex: 1;
+  border: 1.5px solid #3b82f6;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.9rem;
+  color: #1e293b;
+  outline: none;
+}
+.boards-create-confirm {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.boards-create-confirm:hover { background: #2563eb; }
+.boards-create-cancel {
+  background: #f1f5f9;
+  color: #64748b;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.boards-create-cancel:hover { background: #e2e8f0; }
+
+.boards-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+.boards-empty span { font-size: 2rem; }
+
+.boards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+.board-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+}
+.board-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.board-card-preview {
+  height: 100px;
+  background: linear-gradient(135deg, #f8fafc, #eff6ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+.board-card-info { padding: 0.75rem 0.9rem 0.6rem; flex: 1; }
+.board-card-name { font-size: 0.9rem; font-weight: 600; color: #1e293b; }
+.board-card-date { font-size: 0.75rem; color: #94a3b8; margin-top: 0.2rem; }
+.board-card-delete {
+  align-self: flex-end;
+  margin: 0 0.75rem 0.6rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.board-card:hover .board-card-delete { opacity: 1; }
+
+/* Board canvas view */
+.board-view {
+  position: fixed;
+  inset: 0;
+  left: 220px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  z-index: 10;
+}
+.board-topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: #fff;
+  flex-shrink: 0;
+  z-index: 11;
+}
+.board-back {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 7px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.board-back:hover { background: #e2e8f0; }
+.board-name-row { display: flex; align-items: center; gap: 0.5rem; flex: 1; }
+.board-active-name { font-size: 1rem; font-weight: 700; color: #1e293b; }
+.board-rename-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+.board-rename-btn:hover { opacity: 1; }
+.board-rename-row { display: flex; align-items: center; gap: 0.5rem; flex: 1; }
+.board-rename-input {
+  border: 1.5px solid #3b82f6;
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.9rem;
+  outline: none;
+  color: #1e293b;
+}
+.board-rename-save {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.board-rename-cancel {
+  background: #f1f5f9;
+  color: #64748b;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.board-save-status {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+.board-canvas {
+  flex: 1;
+  overflow: hidden;
+}
+.board-canvas .excalidraw {
+  width: 100%;
+  height: 100%;
+}
