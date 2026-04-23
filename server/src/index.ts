@@ -5,6 +5,7 @@ import taskRoutes from "./routes/tasks";
 import topicRoutes from "./routes/topics";
 import pool from "./db";
 import boardRoutes from "./routes/boards";
+import scheduleRoutes from "./routes/schedule";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/api/tasks", taskRoutes);
 app.use("/api/topics", topicRoutes);
 app.use("/api/boards", boardRoutes);
+app.use("/api/schedule", scheduleRoutes);
 
 const PORT = process.env.PORT || 3001;
 
@@ -38,6 +40,18 @@ const initDb = async () => {
     updated_at TIMESTAMP DEFAULT NOW()
     )
   `);
+
+  await pool.query(`
+  CREATE TABLE IF NOT EXISTS schedule (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    date DATE NOT NULL,
+    start_time TEXT,
+    end_time TEXT,
+    type TEXT NOT NULL DEFAULT 'personal',
+    created_at TIMESTAMP DEFAULT NOW()
+  )
+`);
   await pool.query(`
     CREATE TABLE IF NOT EXISTS topics (
       id SERIAL PRIMARY KEY,

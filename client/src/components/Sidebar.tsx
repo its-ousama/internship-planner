@@ -14,6 +14,9 @@ export default function Sidebar({ page, onPageChange }: Props) {
         <button className={`nav-item ${page === "tasks" ? "active" : ""}`} onClick={() => onPageChange("tasks")}>
           <span className="nav-icon">📅</span> Tasks
         </button>
+        <button className={`nav-item ${page === "week" ? "active" : ""}`} onClick={() => onPageChange("week")}>
+          <span className="nav-icon">🗃️</span> This Week
+        </button>
         <button className={`nav-item ${page === "calendar" ? "active" : ""}`} onClick={() => onPageChange("calendar")}>
           <span className="nav-icon">🗓️</span> Calendar
         </button>
