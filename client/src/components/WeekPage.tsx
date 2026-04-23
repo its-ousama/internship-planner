@@ -8,7 +8,7 @@ dayjs.extend(isoWeek);
 
 const API = "http://localhost:3001/api/schedule";
 
-type EventType = "work" | "shift" | "personal" | "meeting";
+type EventType = "work" | "shift" | "personal" | "meeting" | "gym";
 
 interface ScheduleEvent {
   id: number;
@@ -24,6 +24,7 @@ const TYPE_COLORS: Record<EventType, { bg: string; border: string; text: string;
   shift:    { bg: "#fdf4ff", border: "#e9d5ff", text: "#7e22ce", dot: "#a855f7" },
   personal: { bg: "#f0fdf4", border: "#bbf7d0", text: "#15803d", dot: "#22c55e" },
   meeting:  { bg: "#fff7ed", border: "#fed7aa", text: "#c2410c", dot: "#f97316" },
+  gym:  { bg: "#515050", border: "#afa091", text: "#fffb01", dot: "#d8f03d" },
 };
 
 const TYPE_LABELS: Record<EventType, string> = {
@@ -31,6 +32,7 @@ const TYPE_LABELS: Record<EventType, string> = {
   shift: "Shift",
   personal: "Personal",
   meeting: "Meeting",
+  gym: "Gym",
 };
 
 const DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];

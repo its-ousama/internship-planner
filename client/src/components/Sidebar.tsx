@@ -9,13 +9,13 @@ interface Props {
 export default function Sidebar({ page, onPageChange }: Props) {
   return (
     <aside className="sidebar">
-      <div className="sidebar-logo">📋 Planner</div>
+      <div className="sidebar-logo">GOOGLE PLUS</div>
       <nav className="sidebar-nav">
         <button className={`nav-item ${page === "tasks" ? "active" : ""}`} onClick={() => onPageChange("tasks")}>
-          <span className="nav-icon">📅</span> Tasks
+          <span className="nav-icon">📝</span> Tasks
         </button>
         <button className={`nav-item ${page === "week" ? "active" : ""}`} onClick={() => onPageChange("week")}>
-          <span className="nav-icon">🗃️</span> This Week
+          <span className="nav-icon">🆘</span> This Week
         </button>
         <button className={`nav-item ${page === "calendar" ? "active" : ""}`} onClick={() => onPageChange("calendar")}>
           <span className="nav-icon">🗓️</span> Calendar
