@@ -51,22 +51,22 @@ const initDb = async () => {
     type TEXT NOT NULL DEFAULT 'personal',
     created_at TIMESTAMP DEFAULT NOW()
   )
-`);
+  `);
   await pool.query(`
-    CREATE TABLE IF NOT EXISTS topics (
-      id SERIAL PRIMARY KEY,
-      slug TEXT UNIQUE NOT NULL,
-      name TEXT NOT NULL,
-      abbr TEXT,
-      icon TEXT DEFAULT '📄',
-      color TEXT DEFAULT '#2563eb',
-      category TEXT NOT NULL,
-      description TEXT,
-      analogy TEXT,
-      concepts JSONB DEFAULT '[]',
-      connects JSONB DEFAULT '[]',
-      created_at TIMESTAMP DEFAULT NOW()
-    )
+  CREATE TABLE IF NOT EXISTS topics (
+    id SERIAL PRIMARY KEY,
+    slug TEXT UNIQUE NOT NULL,
+    name TEXT NOT NULL,
+    abbr TEXT,
+    icon TEXT DEFAULT '📄',
+    color TEXT DEFAULT '#2563eb',
+    category TEXT NOT NULL,
+    description TEXT,
+    analogy TEXT,
+    concepts JSONB DEFAULT '[]',
+    connects JSONB DEFAULT '[]',
+    created_at TIMESTAMP DEFAULT NOW()
+   )
   `);
   console.log("Database ready");
 };
