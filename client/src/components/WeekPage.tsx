@@ -27,6 +27,7 @@ const TYPE_COLORS: Record<EventType, { bg: string; border: string; text: string;
   gym:  { bg: "#515050", border: "#afa091", text: "#fffb01", dot: "#d8f03d" },
 };
 
+
 const TYPE_LABELS: Record<EventType, string> = {
   work: "Work",
   shift: "Shift",
