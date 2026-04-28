@@ -26,6 +26,10 @@ export default function Sidebar({ page, onPageChange }: Props) {
         <button className={`nav-item ${page === "boards" ? "active" : ""}`} onClick={() => onPageChange("boards")}>
           <span className="nav-icon">🎨</span> Boards
         </button>
+
+        <button className={`nav-item ${page === "journal" ? "active" : ""}`} onClick={() => onPageChange("journal")}>
+          <span className="nav-icon">⚙️</span> Settings
+        </button>
       </nav>
     </aside>
   );
