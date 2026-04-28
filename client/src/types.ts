@@ -34,3 +34,18 @@ export interface Topic {
   concepts: Concept[];
   connects: TopicConnect[];
 }
+
+export interface JournalTheme {
+  bg: string;
+  font: string;
+  textColor: string;
+}
+
+export interface Journal {
+  id: number;
+  name: string;
+  content?: any; // TipTap JSON doc
+  theme: JournalTheme;
+  created_at: string;
+  updated_at: string;
+}

@@ -1,6 +1,5 @@
 import axios from "axios";
-import type { Task, Priority } from "./types";
-import type { Topic } from "./types";
+import type { Task, Priority, Topic, Journal, JournalTheme } from "./types";
 
 const BASE = "http://localhost:3001/api/tasks";
 
@@ -33,3 +32,37 @@ export const updateTopic = (id: number, data: Omit<Topic, "id">) =>
 
 export const deleteTopic = (id: number) =>
   axios.delete(`${TOPICS}/${id}`).then(r => r.data);
+
+// ── Journal ──────────────────────────────────────────────────────────────────
+
+const JOURNALS = "http://localhost:3001/api/journals";
+
+export const getJournalStatus = () =>
+  axios.get<{ configured: boolean }>(`${JOURNALS}/config/status`).then(r => r.data);
+
+export const setupJournal = (data: { password: string; answer: string; number: string }) =>
+  axios.post(`${JOURNALS}/config/setup`, data).then(r => r.data);
+
+export const verifyJournal = (data: { password: string; answer: string; number: string }) =>
+  axios.post<{ success: boolean }>(`${JOURNALS}/config/verify`, data).then(r => r.data);
+
+export const getJournals = () =>
+  axios.get<Journal[]>(JOURNALS).then(r => r.data);
+
+export const getJournal = (id: number) =>
+  axios.get<Journal>(`${JOURNALS}/${id}`).then(r => r.data);
+
+export const createJournal = (name: string) =>
+  axios.post<Journal>(JOURNALS, { name }).then(r => r.data);
+
+export const saveJournalContent = (id: number, content: any) =>
+  axios.put<Journal>(`${JOURNALS}/${id}`, { content }).then(r => r.data);
+
+export const updateJournalTheme = (id: number, theme: JournalTheme) =>
+  axios.patch<Journal>(`${JOURNALS}/${id}/theme`, { theme }).then(r => r.data);
+
+export const renameJournal = (id: number, name: string) =>
+  axios.patch<Journal>(`${JOURNALS}/${id}`, { name }).then(r => r.data);
+
+export const deleteJournal = (id: number) =>
+  axios.delete(`${JOURNALS}/${id}`).then(r => r.data);

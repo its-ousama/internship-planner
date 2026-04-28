@@ -11,10 +11,10 @@ router.get("/", async (req: Request, res: Response) => {
   const result = date
     ? await pool.query(
         `SELECT id, title, ${DATE_FORMAT}, status, priority, color, created_at FROM tasks WHERE date = $1 ORDER BY created_at ASC`,
-        [date]
+        [date],
       )
     : await pool.query(
-        `SELECT id, title, ${DATE_FORMAT}, status, priority, color, created_at FROM tasks ORDER BY date ASC, created_at ASC`
+        `SELECT id, title, ${DATE_FORMAT}, status, priority, color, created_at FROM tasks ORDER BY date ASC, created_at ASC`,
       );
   res.json(result.rows);
 });
@@ -24,7 +24,7 @@ router.post("/", async (req: Request, res: Response) => {
   const { title, date, priority, color } = req.body;
   const result = await pool.query(
     `INSERT INTO tasks (title, date, priority, color) VALUES ($1, $2, $3, $4) RETURNING id, title, ${DATE_FORMAT}, status, priority, color, created_at`,
-    [title, date, priority, color]
+    [title, date, priority, color],
   );
   res.json(result.rows[0]);
 });
@@ -35,7 +35,7 @@ router.patch("/:id/status", async (req: Request, res: Response) => {
   const { status } = req.body;
   const result = await pool.query(
     `UPDATE tasks SET status = $1 WHERE id = $2 RETURNING id, title, ${DATE_FORMAT}, status, priority, color, created_at`,
-    [status, id]
+    [status, id],
   );
   res.json(result.rows[0]);
 });
@@ -46,7 +46,7 @@ router.patch("/:id", async (req: Request, res: Response) => {
   const { title, priority, color } = req.body;
   const result = await pool.query(
     `UPDATE tasks SET title = $1, priority = $2, color = $3 WHERE id = $4 RETURNING id, title, ${DATE_FORMAT}, status, priority, color, created_at`,
-    [title, priority, color, id]
+    [title, priority, color, id],
   );
   res.json(result.rows[0]);
 });

@@ -6,6 +6,7 @@ import topicRoutes from "./routes/topics";
 import pool from "./db";
 import boardRoutes from "./routes/boards";
 import scheduleRoutes from "./routes/schedule";
+import journalRoutes from "./routes/journals";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/topics", topicRoutes);
 app.use("/api/boards", boardRoutes);
 app.use("/api/schedule", scheduleRoutes);
+app.use("/api/journals", journalRoutes);
 
 const PORT = process.env.PORT || 3001;
 
@@ -33,44 +35,58 @@ const initDb = async () => {
     )
   `);
   await pool.query(`
-  CREATE TABLE IF NOT EXISTS boards (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    data JSONB DEFAULT '{}',
-    updated_at TIMESTAMP DEFAULT NOW()
+    CREATE TABLE IF NOT EXISTS boards (
+      id SERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      data JSONB DEFAULT '{}',
+      updated_at TIMESTAMP DEFAULT NOW()
     )
   `);
-
   await pool.query(`
-  CREATE TABLE IF NOT EXISTS schedule (
-    id SERIAL PRIMARY KEY,
-    title TEXT NOT NULL,
-    date DATE NOT NULL,
-    start_time TEXT,
-    end_time TEXT,
-    type TEXT NOT NULL DEFAULT 'personal',
-    created_at TIMESTAMP DEFAULT NOW()
-  )
+    CREATE TABLE IF NOT EXISTS schedule (
+      id SERIAL PRIMARY KEY,
+      title TEXT NOT NULL,
+      date DATE NOT NULL,
+      start_time TEXT,
+      end_time TEXT,
+      type TEXT NOT NULL DEFAULT 'personal',
+      created_at TIMESTAMP DEFAULT NOW()
+    )
   `);
   await pool.query(`
-  CREATE TABLE IF NOT EXISTS topics (
-    id SERIAL PRIMARY KEY,
-    slug TEXT UNIQUE NOT NULL,
-    name TEXT NOT NULL,
-    abbr TEXT,
-    icon TEXT DEFAULT '📄',
-    color TEXT DEFAULT '#2563eb',
-    category TEXT NOT NULL,
-    description TEXT,
-    analogy TEXT,
-    concepts JSONB DEFAULT '[]',
-    connects JSONB DEFAULT '[]',
-    created_at TIMESTAMP DEFAULT NOW()
-   )
+    CREATE TABLE IF NOT EXISTS topics (
+      id SERIAL PRIMARY KEY,
+      slug TEXT UNIQUE NOT NULL,
+      name TEXT NOT NULL,
+      abbr TEXT,
+      icon TEXT DEFAULT '📄',
+      color TEXT DEFAULT '#2563eb',
+      category TEXT NOT NULL,
+      description TEXT,
+      analogy TEXT,
+      concepts JSONB DEFAULT '[]',
+      connects JSONB DEFAULT '[]',
+      created_at TIMESTAMP DEFAULT NOW()
+    )
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS journals (
+      id SERIAL PRIMARY KEY,
+      name TEXT NOT NULL DEFAULT 'Untitled',
+      content JSONB DEFAULT '{}',
+      theme JSONB DEFAULT '{}',
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT NOW()
+    )
+  `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS journal_config (
+      id SERIAL PRIMARY KEY,
+      hash TEXT NOT NULL
+    )
   `);
   console.log("Database ready");
 };
-
 
 initDb().then(() => {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

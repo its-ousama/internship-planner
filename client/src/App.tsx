@@ -6,9 +6,10 @@ import CalendarPage from "./components/CalendarPage";
 import DocumentationPage from "./components/DocumentationPage";
 import BoardsPage from "./components/BoardsPage";
 import WeekPage from "./components/WeekPage";
+import JournalPage from "./components/JournalPage";
 import "./App.css";
 
-export type Page = "tasks" | "calendar" | "documentation" | "boards" | "week" ;
+export type Page = "tasks" | "calendar" | "documentation" | "boards" | "week" | "journal";
 
 export default function App() {
   const [selectedDate, setSelectedDate] = useState(dayjs().format("YYYY-MM-DD"));
@@ -28,6 +29,7 @@ export default function App() {
         {page === "documentation" && <DocumentationPage />}
         {page === "boards" && <BoardsPage />}
         {page === "week" && <WeekPage />}
+        {page === "journal" && <JournalPage />}
       </main>
     </div>
   );
