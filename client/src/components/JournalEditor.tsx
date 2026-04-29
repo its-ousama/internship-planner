@@ -46,6 +46,12 @@ export default function JournalEditor({ journal, onBack, onThemeChange }: Props)
       Placeholder.configure({ placeholder: "Start writing…" }),
     ],
     content: "",
+    editorProps: {
+      attributes: {
+        spellcheck: "true",
+        autocorrect: "on",
+      },
+    },
     onUpdate: ({ editor }) => {
       if (saveTimer.current) clearTimeout(saveTimer.current);
       saveTimer.current = setTimeout(() => {

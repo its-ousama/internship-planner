@@ -3,8 +3,6 @@ import pool from "../db";
 
 const router = Router();
 
-console.log("Schedule route loaded");
-
 router.get("/", async (req: Request, res: Response) => {
   const { start, end } = req.query;
   const result = await pool.query(

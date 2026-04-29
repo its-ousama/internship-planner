@@ -142,7 +142,7 @@ export default function JournalPage() {
           />
           <input
             type="password"
-            placeholder="What's the answer of life?"
+            placeholder="Is it God, BigBang or something else? "
             value={answer}
             onChange={e => setAnswer(e.target.value)}
             onKeyDown={e => e.key === "Enter" && handleVerify()}
@@ -150,7 +150,7 @@ export default function JournalPage() {
           />
           <input
             type="password"
-            placeholder="Your number"
+            placeholder="Gate number"
             value={number}
             onChange={e => setNumber(e.target.value)}
             onKeyDown={e => e.key === "Enter" && handleVerify()}
