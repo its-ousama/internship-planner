@@ -4,4 +4,4 @@ Like a second brain / home base that replaces the generic Google homepage with s
 The "GOOGLE PLUS" makes a lot more sense 
 So the vision is something like: instead of opening a browser and going to google.com,you open this, and everything you need is already there — 
 your tasks, your KB, your drawings, and eventually links into all your past projects, tools you use, stuff you've built.
-INSERT ALSO A GOOGLE SEARCH BAR AND IT WILL BE A PAGE IN THE THING IN THE FUTURE
+
