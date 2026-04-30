@@ -1,0 +1,82 @@
+/* Gate */
+.finance-gate { display: flex; align-items: center; justify-content: center; height: 100%; min-height: 80vh; }
+.finance-gate-dots { color: #aaa; font-size: 1.5rem; letter-spacing: 4px; }
+.finance-gate-box { background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; padding: 2.5rem 2rem; width: 320px; display: flex; flex-direction: column; align-items: center; gap: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+.finance-gate-box.shake { animation: shake 0.5s ease; }
+@keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-10px); } 40% { transform: translateX(10px); } 60% { transform: translateX(-7px); } 80% { transform: translateX(7px); } }
+.finance-gate-icon { font-size: 2.5rem; }
+.finance-gate-box h2 { font-size: 1.3rem; font-weight: 700; margin: 0; color: #1a1a1a; }
+.finance-gate-sub { font-size: 0.85rem; color: #888; margin: 0; text-align: center; }
+.finance-pin-dots { display: flex; gap: 0.75rem; margin: 0.5rem 0; }
+.finance-pin-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #d1d5db; transition: all 0.15s; }
+.finance-pin-dot.filled { background: #6366f1; border-color: #6366f1; transform: scale(1.1); }
+.finance-gate-error { color: #dc2626; font-size: 0.85rem; }
+.finance-numpad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; width: 220px; }
+.finance-numpad-btn { height: 56px; border: 1px solid #e5e7eb; border-radius: 12px; font-size: 1.2rem; font-weight: 500; background: #fff; cursor: pointer; transition: background 0.1s, transform 0.1s; color: #1a1a1a; }
+.finance-numpad-btn:hover { background: #f3f4f6; }
+.finance-numpad-btn:active { transform: scale(0.95); background: #e5e7eb; }
+.finance-numpad-btn.empty { cursor: default; border-color: transparent; background: transparent; }
+.finance-numpad-btn.delete { color: #6b7280; }
+.finance-gate-confirm { width: 100%; background: #6366f1; color: #fff; border: none; border-radius: 10px; padding: 0.7rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+.finance-gate-confirm:hover { background: #4f46e5; }
+.finance-layout { display: flex; height: 100vh; overflow: hidden; }
+.finance-sidebar { width: 200px; min-width: 200px; background: #fff; border-right: 1px solid #e5e7eb; display: flex; flex-direction: column; padding: 1.5rem 0; gap: 0.5rem; }
+.finance-sidebar-header { padding: 0 1.25rem 0.75rem; border-bottom: 1px solid #f3f4f6; }
+.finance-sidebar-title { font-size: 1rem; font-weight: 700; color: #1a1a1a; }
+.finance-month-nav { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; font-size: 0.82rem; color: #555; }
+.finance-month-nav button { background: none; border: none; cursor: pointer; font-size: 1rem; color: #6366f1; padding: 0 0.25rem; }
+.finance-nav { display: flex; flex-direction: column; gap: 0.2rem; padding: 0 0.75rem; }
+.finance-nav-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 0.75rem; border-radius: 8px; border: none; background: none; cursor: pointer; font-size: 0.9rem; color: #555; text-align: left; transition: all 0.1s; }
+.finance-nav-item:hover { background: #f3f4f6; color: #1a1a1a; }
+.finance-nav-item.active { background: #eef2ff; color: #6366f1; font-weight: 600; }
+.finance-main { flex: 1; overflow-y: auto; padding: 2rem 2.5rem; background: #f9fafb; }
+.finance-pending-banner { background: #fef3c7; border: 1px solid #fde68a; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; position: relative; }
+.finance-pending-banner > span { font-weight: 600; font-size: 0.9rem; color: #92400e; }
+.finance-pending-items { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
+.finance-pending-item { display: flex; align-items: center; gap: 0.75rem; background: #fff; border-radius: 8px; padding: 0.5rem 0.75rem; font-size: 0.88rem; }
+.finance-pending-item button { border: none; border-radius: 6px; padding: 0.25rem 0.6rem; cursor: pointer; font-size: 0.82rem; }
+.finance-pending-item button:first-of-type { background: #6366f1; color: #fff; }
+.finance-pending-item button.skip { background: #f3f4f6; color: #555; }
+.finance-banner-close { position: absolute; top: 0.75rem; right: 0.75rem; background: none; border: none; cursor: pointer; font-size: 0.85rem; color: #92400e; }
+.finance-input { border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.55rem 0.85rem; font-size: 0.9rem; outline: none; transition: border-color 0.15s; background: #fff; color: #1a1a1a; }
+.finance-input:focus { border-color: #6366f1; }
+.positive { color: #16a34a; }
+.negative { color: #dc2626; }
+.muted { color: #9ca3af; }
+.finance-save-btn { background: #6366f1; color: #fff; border: none; border-radius: 8px; padding: 0.55rem 1.1rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+.finance-save-btn:hover { background: #4f46e5; }
+.finance-cancel-btn { background: #f3f4f6; color: #555; border: none; border-radius: 8px; padding: 0.55rem 1.1rem; font-size: 0.9rem; cursor: pointer; }
+.finance-icon-picker { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+.finance-icon-btn { width: 36px; height: 36px; border: 2px solid transparent; border-radius: 8px; font-size: 1.1rem; cursor: pointer; background: #f9fafb; transition: all 0.1s; }
+.finance-icon-btn:hover { background: #e5e7eb; }
+.finance-icon-btn.selected { border-color: #6366f1; background: #eef2ff; }
+.finance-color-picker { display: flex; gap: 0.4rem; align-items: center; margin-top: 0.4rem; flex-wrap: wrap; }
+.finance-color-swatch { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform 0.1s; }
+.finance-color-swatch:hover { transform: scale(1.15); }
+.finance-color-swatch.selected { box-shadow: 0 0 0 3px #6366f1; }
+.finance-color-custom { width: 28px; height: 28px; border-radius: 50%; border: none; cursor: pointer; padding: 0; }
+.finance-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 1.25rem 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.finance-hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #555;
+  padding: 0.2rem 0.3rem;
+  border-radius: 6px;
+  line-height: 1;
+  transition: background 0.1s, color 0.1s;
+  flex-shrink: 0;
+}
+
+.finance-hamburger:hover {
+  background: #f3f4f6;
+  color: #6366f1;
+}
