@@ -1,0 +1,91 @@
+.finance-goals { display: flex; flex-direction: column; gap: 1.5rem; }
+.finance-goals-header { display: flex; align-items: center; justify-content: space-between; }
+.finance-goals-header h2 { margin: 0; font-size: 1.2rem; font-weight: 700; }
+.finance-add-goal-btn { background: #6366f1; color: #fff; border: none; border-radius: 8px; padding: 0.55rem 1.1rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+.finance-add-goal-btn:hover { background: #4f46e5; }
+.finance-goal-form { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.finance-goal-form h3 { margin: 0; font-size: 0.95rem; font-weight: 600; }
+.finance-goal-form label { display: block; font-size: 0.78rem; font-weight: 600; color: #888; margin-bottom: 0.35rem; text-transform: uppercase; }
+.finance-goal-form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.finance-goal-form-row > div { flex: 1; min-width: 140px; }
+.finance-goal-form-row .finance-input { width: 100%; box-sizing: border-box; }
+.finance-goal-form-actions { display: flex; gap: 0.75rem; }
+.finance-goals-empty { text-align: center; padding: 3rem; color: #aaa; }
+.finance-goals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+.finance-goal-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 14px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; transition: box-shadow 0.15s; }
+.finance-goal-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.finance-goal-card.done { opacity: 0.8; }
+.finance-goal-card-top { display: flex; align-items: center; gap: 0.75rem; }
+.finance-goal-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+.finance-goal-card-info { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; }
+.finance-goal-name { font-size: 0.95rem; font-weight: 600; color: #1a1a1a; }
+.finance-goal-done-badge { font-size: 0.78rem; color: #16a34a; }
+.finance-goal-deadline { font-size: 0.75rem; color: #888; }
+.finance-goal-deadline.urgent { color: #ef4444; }
+.finance-goal-card-actions { display: flex; gap: 0.3rem; opacity: 0; transition: opacity 0.15s; }
+.finance-goal-card:hover .finance-goal-card-actions { opacity: 1; }
+.finance-goal-card-actions button { background: none; border: none; cursor: pointer; font-size: 0.85rem; padding: 0.2rem; }
+.finance-goal-progress-bar { height: 10px; background: #f3f4f6; border-radius: 5px; overflow: hidden; }
+.finance-goal-progress-fill { height: 100%; border-radius: 5px; transition: width 0.4s ease; }
+.finance-goal-amounts { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; }
+.finance-contribute-btn { border: 1px solid; border-radius: 8px; padding: 0.4rem 0.75rem; font-size: 0.85rem; font-weight: 500; background: none; cursor: pointer; transition: background 0.1s; text-align: center; }
+.finance-contribute-btn:hover { background: rgba(0,0,0,0.04); }
+.finance-contribute-row { display: flex; gap: 0.5rem; align-items: center; }
+.finance-contribute-row .finance-input { flex: 1; }
+
+/* Goal action buttons row */
+.finance-goal-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.finance-contribute-btn {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: none;
+  cursor: pointer;
+  transition: background 0.1s;
+  text-align: center;
+  width: 100%;
+}
+
+.finance-contribute-btn:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+.finance-contribute-btn.withdraw {
+  color: #ef4444;
+  border-color: #ef444466;
+}
+
+/* Contribute input section */
+.finance-contribute-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.finance-contribute-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.finance-contribute-confirm-btn {
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  width: 100%;
+}
+
+.finance-contribute-confirm-btn:hover {
+  opacity: 0.88;
+}

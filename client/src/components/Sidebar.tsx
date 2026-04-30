@@ -4,9 +4,12 @@ import "./Sidebar.css";
 interface Props {
   page: Page;
   onPageChange: (page: Page) => void;
+  hidden?: boolean;
 }
 
-export default function Sidebar({ page, onPageChange }: Props) {
+export default function Sidebar({ page, onPageChange, hidden }: Props) {
+  if (hidden) return null;
+
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">GOOGLE PLUS</div>
@@ -26,9 +29,11 @@ export default function Sidebar({ page, onPageChange }: Props) {
         <button className={`nav-item ${page === "boards" ? "active" : ""}`} onClick={() => onPageChange("boards")}>
           <span className="nav-icon">🎨</span> Boards
         </button>
-
         <button className={`nav-item ${page === "journal" ? "active" : ""}`} onClick={() => onPageChange("journal")}>
           <span className="nav-icon">⚙️</span> Settings
+        </button>
+        <button className={`nav-item ${page === "finance" ? "active" : ""}`} onClick={() => onPageChange("finance")}>
+          <span className="nav-icon">💳</span> Finance
         </button>
       </nav>
     </aside>
